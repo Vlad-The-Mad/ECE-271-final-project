@@ -1,4 +1,6 @@
-module ALU (input logic ctrl_signal,
+module ALU (input logic [1:0] ctrl_signal,
+		input logic [15:0] input_a,
+		input logic [15:0] input_b,
             output logic [15:0] alu_result);
 always_comb
     case (ctrl_signal)
