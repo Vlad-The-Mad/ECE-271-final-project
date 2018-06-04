@@ -7,14 +7,14 @@ module control_matrix (input logic [3:0] opcode,
 
 always_comb begin
   case(opcode)
-  0000: /*no operation*/
-  0001: /*absolute jump*/
-  0010: write_register = 1, write_reg_from_memory = 1;/*load bitstring from memory to register*/
-  0011: read_register = 1;/*store bitstring in memory*/
-  0100: alu_control = 01;/*less than (comparator)*/
-  0101: alu_control = 01;/*equal to*/
-  1000: alu_control = 00;/*add registers together*/
-  1001: alu_control = 01;/*subtract registers from each other*/
+  0000: /*no operation / display */
+  0001: /* GOT absolute jump*/
+  0010: write_register = 1, write_reg_from_memory = 1;/* GOT load bitstring from memory to register*/
+  0011: read_register = 1;/*GOT store register val in memory*/
+  0100: alu_control = 00;/* GOT copy register to register */
+  0101: alu_control = 01;/* GOT branch if less than*/
+  1000: alu_control = 00;/* GOT add registers together*/
+  1001: alu_control = 01;/* GOT subtract registers from each other*/
   endcase
 end
 endmodule
