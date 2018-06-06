@@ -23,8 +23,8 @@ always @ (posedge clk or negedge reset) begin
   if (!reset)
     begin
     registerfile[0] <= 16'b0;
-    registerfile[1] <= 16'b0;
     /*reg [1] stores the mem offset*/
+    registerfile[1] <= 16'd512;
     registerfile[2] <= 16'b0;
     registerfile[3] <= 16'b0;
     registerfile[4] <= 16'b0;

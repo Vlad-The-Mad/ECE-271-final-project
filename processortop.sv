@@ -1,7 +1,8 @@
 module processortop ();
 
 logic clk;
-logic state_reset
+logic state_reset;
+logic processor_output;
 
 state_machine state_machine(
   .clock(clk),
@@ -9,10 +10,10 @@ state_machine state_machine(
   .state(state));
 
 control_matrix control(
-  .opcode(), //part of instruction bus
+  .opcode(Mem_out[15:12]),
   .state(state),
   .LT_flag(LT_flag_set),
-  .LT_state(), //goes to a register?
+  .LT_state(incr_branch),
   .alu_control(alu_control),
   .write_register(reg_file_wrEN),
   .read_register(reset_reg_file),
@@ -28,8 +29,7 @@ control_matrix control(
   .EN_mem_add(EN_mem_add),
   .mem_add_reset(mem_add_reset),
 
-  .10or20_branch(branch_len),
-  .increment_or_branch_PC(incr_branch),
+  .10or-10_branch(branch_len),
   .PC_or_read_mem(PC_or_read_mem),
   .PC_in_op(PC_in_op),
   .lineb_ex(lineb_ex),
@@ -37,7 +37,7 @@ control_matrix control(
   );
 
 extender sign_extender(
-  .in_10(), //part of instruction
+  .in_10(Mem_out[9:0]), //part of instruction
   .reset(extender_reset),
   .out_16(signex_out));
 
@@ -53,11 +53,15 @@ register mem_add(
   .clock(clk),
   .reset(mem_add_reset),
   .write_word(linea_alu_out),
-  .readword(write_mem_add));
+  .readword(processor_output);
 
-register output_store();
-
-register machine_state();
+register output_store(
+  .enable(EN_output)
+  .clock(clk),
+  .reset(output_reset),
+  .write_word(linea_alu_out),
+  .readword(line_a);
+  );
 
 RAM memory(
   .write_EN(RAM_wrEN),
@@ -72,9 +76,9 @@ register_bank reg_file(
   .read_1EN(read_1EN),
   .read_2EN(read_2EN),
   .writeEN(reg_file_wrEN),
-  .read_1(),//part of instruction
-  .read_2(),//part of instruction
-  .write_reg_address(),//part of instruction
+  .read_1(Mem_out[9:5]),//part of instruction
+  .read_2(Mem_out[4:0]),//part of instruction
+  .write_reg_address(Mem_out[9:5]),//part of instruction
   .write_val(linea_alu_out),
   .line_a(line_a),
   .line_b(line_b));
@@ -95,12 +99,12 @@ adder pc_adder(
 multiplexer2 branch_length_mux(
   .select(branch_len),
   .line_1(16'd10),
-  .line_2(16'd20),
+  .line_2(-16'd10),
   .out(branch));
 
 multiplexer2 incr_branch_mux(
   .select(incr_branch),
-  .line_1(16'd4),
+  .line_1(16'b1),
   .line_2(branch),
   .out(add_to_PC);
 

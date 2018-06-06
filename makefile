@@ -1,3 +1,8 @@
+adder_sim: adder.sv adder_tb.sv
+	iverilog -g2012 -Wall adder.sv adder_tb.sv -o adder.elf
+	./adder.elf
+	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
+
 RAM_sim: RAM.sv RAM_tb.sv
 	iverilog -g2012 -Wall RAM.sv RAM_tb.sv -o RAM.elf
 	./RAM.elf
