@@ -5,9 +5,8 @@ module RAM (input logic write_EN,
             output logic [15:0] word);
 logic [15:0] mem [1023:0];
 always @ (read_address or write_address or write_EN or write_value)
-  begin
   if (write_EN)
     mem[write_address] = write_value;
   word = mem[read_address];
-  end
+end
 endmodule

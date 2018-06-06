@@ -5,20 +5,41 @@ logic state_reset
 
 state_machine state_machine(
   .clock(clk),
-  .state_reset(state_reset),
+  .state_reset(state_machine_reset),
   .state(state));
 
 control_matrix control(
-  .opcode(),
+  .opcode(), //part of instruction bus
   .state(state),
   .LT_flag(LT_flag_set),
-  .LT_state(),
+  .LT_state(), //goes to a register?
   .alu_control(alu_control),
   .write_register(reg_file_wrEN),
   .read_register(reset_reg_file),
-  .write_reg_from_memory());
+  .write_reg_from_memory(),
+  .extender_reset(extender_reset),
+  .state_machine_reset(state_machine_reset),
+  .PC_EN(PC_EN),
+  .PC_reset(PC_reset),
+  .reset_reg_file(reset_reg_file),
+  .read_1EN(read_1EN),
+  .read_2EN(read_2EN),
+  .reg_file_wrEN(reg_file_wrEN),
+  .EN_mem_add(EN_mem_add),
+  .mem_add_reset(mem_add_reset),
 
-extender sign_extender();
+  .10or20_branch(branch_len),
+  .increment_or_branch_PC(incr_branch),
+  .PC_or_read_mem(PC_or_read_mem),
+  .PC_in_op(PC_in_op),
+  .lineb_ex(lineb_ex),
+  .alu_linea(alu_linea),
+  );
+
+extender sign_extender(
+  .in_10(), //part of instruction
+  .reset(extender_reset),
+  .out_16(signex_out));
 
 register PC(
   .enable(PC_EN)
@@ -51,9 +72,9 @@ register_bank reg_file(
   .read_1EN(read_1EN),
   .read_2EN(read_2EN),
   .writeEN(reg_file_wrEN),
-  .read_1(),
-  .read_2(),
-  .write_reg_address(),
+  .read_1(),//part of instruction
+  .read_2(),//part of instruction
+  .write_reg_address(),//part of instruction
   .write_val(linea_alu_out),
   .line_a(line_a),
   .line_b(line_b));
@@ -73,8 +94,8 @@ adder pc_adder(
 
 multiplexer2 branch_length_mux(
   .select(branch_len),
-  .line_1(16'd20),
-  .line_2(16'd40),
+  .line_1(16'd10),
+  .line_2(16'd20),
   .out(branch));
 
 multiplexer2 incr_branch_mux(

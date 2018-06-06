@@ -1,9 +1,9 @@
 [*]
 [*] GTKWave Analyzer v3.3.82 (w)1999-2017 BSI
-[*] Wed Jun  6 02:04:06 2018
+[*] Wed Jun  6 02:25:31 2018
 [*]
 [dumpfile] "/home/vladimir/school/ECE271/final_project_system_verilog/sign_extender.vcd"
-[dumpfile_mtime] "Wed Jun  6 02:03:54 2018"
+[dumpfile_mtime] "Wed Jun  6 02:25:08 2018"
 [dumpfile_size] 688
 [savefile] "/home/vladimir/school/ECE271/final_project_system_verilog/sign_extender.gtkw"
 [timestart] 0
@@ -15,11 +15,12 @@
 [signals_width] 261
 [sst_expanded] 1
 [sst_vpaned_height] 186
-@29
+@28
 test.in_10[9:0]
+@29
+test.u1.temp_store[9:0]
 @28
 test.out_16[15:0]
-test.u1.temp_store[9:0]
 @24
 test.reset
 [pattern_trace] 1
