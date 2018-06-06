@@ -1,0 +1,97 @@
+$date
+	Mon Jun  4 12:55:45 2018
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test $end
+$var wire 16 ! out [15:0] $end
+$var reg 16 " line_1 [15:0] $end
+$var reg 16 # line_2 [15:0] $end
+$var reg 16 $ line_3 [15:0] $end
+$var reg 16 % line_4 [15:0] $end
+$var reg 2 & select [1:0] $end
+$scope module u1 $end
+$var wire 16 ' line_1 [15:0] $end
+$var wire 16 ( line_2 [15:0] $end
+$var wire 16 ) line_3 [15:0] $end
+$var wire 16 * line_4 [15:0] $end
+$var wire 2 + select [1:0] $end
+$var reg 16 , out [15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1010 ,
+b0 +
+b10100 *
+b10100 )
+b10100 (
+b1010 '
+b0 &
+b10100 %
+b10100 $
+b10100 #
+b1010 "
+b1010 !
+$end
+#100
+b11110 !
+b11110 ,
+b11110 "
+b11110 '
+#200
+b10100 !
+b10100 ,
+b110010 %
+b110010 *
+b101000 $
+b101000 )
+b1010 #
+b1010 (
+b10100 "
+b10100 '
+#300
+b1010 !
+b1010 ,
+b1 &
+b1 +
+#500
+b110010 !
+b110010 ,
+b110010 $
+b110010 )
+b10 &
+b10 +
+#600
+b10100 !
+b10100 ,
+b0 %
+b0 *
+b10100 $
+b10100 )
+b0 #
+b0 (
+b0 "
+b0 '
+#700
+b0 !
+b0 ,
+b11 &
+b11 +
+#800
+b110010 !
+b110010 ,
+b110010 %
+b110010 *
+#900
+b101000 $
+b101000 )
+b1010 #
+b1010 (
+b10100 "
+b10100 '
