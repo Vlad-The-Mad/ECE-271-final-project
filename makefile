@@ -1,4 +1,3 @@
-
 RAM_sim: RAM.sv RAM_tb.sv
 	iverilog -g2012 -Wall RAM.sv RAM_tb.sv -o RAM.elf
 	./RAM.elf
