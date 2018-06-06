@@ -1,0 +1,56 @@
+$date
+	Tue Jun  5 19:07:03 2018
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test $end
+$var wire 16 ! out_16 [15:0] $end
+$var reg 10 " in_10 [9:0] $end
+$var reg 1 # reset $end
+$scope module u1 $end
+$var wire 10 $ in_10 [9:0] $end
+$var wire 1 # reset $end
+$var reg 16 % out_16 [15:0] $end
+$var reg 10 & temp_store [9:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx &
+bx %
+bx $
+1#
+bx "
+bx !
+$end
+#100
+b0 !
+b0 %
+b0 &
+0#
+#200
+1#
+#400
+b111111111 !
+b111111111 %
+b111111111 &
+b111111111 "
+b111111111 $
+#600
+b1111111111111111 !
+b1111111111111111 %
+b1111111111 &
+b1111111111 "
+b1111111111 $
+#800
+b10100 !
+b10100 %
+b10100 &
+b10100 "
+b10100 $
+#1000

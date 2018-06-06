@@ -1,0 +1,86 @@
+$date
+	Tue Jun  5 18:57:34 2018
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test $end
+$var wire 2 ! state [1:0] $end
+$var reg 1 " clk $end
+$var reg 1 # state_reset $end
+$scope module u1 $end
+$var wire 1 " clk $end
+$var wire 1 # state_reset $end
+$var reg 2 $ next_state [1:0] $end
+$var reg 2 % state [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx %
+bx $
+1#
+0"
+bx !
+$end
+#50
+1"
+#100
+b0 $
+0"
+0#
+#150
+b0 !
+b0 %
+b1 $
+1"
+#200
+0"
+1#
+#250
+b1 !
+b1 %
+b10 $
+1"
+#300
+0"
+#350
+b10 !
+b10 %
+b11 $
+1"
+#400
+0"
+#450
+b11 !
+b11 %
+b0 $
+1"
+#500
+0"
+#550
+b0 !
+b0 %
+b1 $
+1"
+#600
+b0 $
+0"
+0#
+#650
+b1 $
+1"
+#700
+0"
+1#
+#750
+b1 !
+b1 %
+b10 $
+1"
+#800
+0"
