@@ -1,0 +1,101 @@
+$date
+	Mon Jun  4 18:56:50 2018
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test $end
+$var wire 16 ! alu_result [15:0] $end
+$var wire 1 " LT $end
+$var reg 2 # ctrl [1:0] $end
+$var reg 16 $ input_a [15:0] $end
+$var reg 16 % input_b [15:0] $end
+$scope module u1 $end
+$var wire 1 " LT $end
+$var wire 2 & ctrl [1:0] $end
+$var wire 16 ' input_a [15:0] $end
+$var wire 16 ( input_b [15:0] $end
+$var reg 16 ) alu_result [15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b11110 )
+b10100 (
+b1010 '
+b0 &
+b10100 %
+b1010 $
+b0 #
+0"
+b11110 !
+$end
+#100
+b101000 !
+b101000 )
+b11110 %
+b11110 (
+#200
+b1010000 !
+b1010000 )
+b110010 $
+b110010 '
+#300
+1"
+b1111111111110110 !
+b1111111111110110 )
+b10100 %
+b10100 (
+b1010 $
+b1010 '
+b1 #
+b1 &
+#400
+b1111111111101100 !
+b1111111111101100 )
+b11110 %
+b11110 (
+#500
+0"
+b10100 !
+b10100 )
+b110010 $
+b110010 '
+#600
+b1010 !
+b1010 )
+b1010 %
+b1010 (
+b1010 $
+b1010 '
+b10 #
+b10 &
+#700
+b11110 %
+b11110 (
+#800
+b10010 !
+b10010 )
+b110010 $
+b110010 '
+#900
+b11110 !
+b11110 )
+b10100 %
+b10100 (
+b1010 $
+b1010 '
+b11 #
+b11 &
+#1000
+b11110 %
+b11110 (
+#1100
+b111110 !
+b111110 )
+b110010 $
+b110010 '

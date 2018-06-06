@@ -1,0 +1,24 @@
+[*]
+[*] GTKWave Analyzer v3.3.82 (w)1999-2017 BSI
+[*] Mon Jun  4 19:18:29 2018
+[*]
+[dumpfile] "/home/vladimir/school/ECE271/final_project_system_verilog/mux.vcd"
+[dumpfile_mtime] "Mon Jun  4 19:16:23 2018"
+[dumpfile_size] 627
+[savefile] "/home/vladimir/school/ECE271/final_project_system_verilog/mux.gtkw"
+[timestart] 0
+[size] 1366 728
+[pos] -1 -1
+*-7.488798 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 213
+[signals_width] 162
+[sst_expanded] 1
+[sst_vpaned_height] 186
+@24
+test.line_1[15:0]
+test.line_2[15:0]
+test.out[15:0]
+@28
+test.select
+[pattern_trace] 1
+[pattern_trace] 0

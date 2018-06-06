@@ -1,0 +1,88 @@
+[*]
+[*] GTKWave Analyzer v3.3.82 (w)1999-2017 BSI
+[*] Mon Jun  4 19:59:07 2018
+[*]
+[dumpfile] "/home/vladimir/school/ECE271/final_project_system_verilog/alu.vcd"
+[dumpfile_mtime] "Mon Jun  4 19:56:55 2018"
+[dumpfile_size] 1143
+[savefile] "/home/vladimir/school/ECE271/final_project_system_verilog/alu.gtkw"
+[timestart] 0
+[size] 1366 728
+[pos] -1 -1
+*-7.755517 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 213
+[signals_width] 204
+[sst_expanded] 1
+[sst_vpaned_height] 197
+@28
+test.LT
+@c00024
+[color] 1
+test.alu_result[15:0]
+@28
+[color] 1
+(0)test.alu_result[15:0]
+[color] 1
+(1)test.alu_result[15:0]
+[color] 1
+(2)test.alu_result[15:0]
+[color] 1
+(3)test.alu_result[15:0]
+[color] 1
+(4)test.alu_result[15:0]
+[color] 1
+(5)test.alu_result[15:0]
+[color] 1
+(6)test.alu_result[15:0]
+[color] 1
+(7)test.alu_result[15:0]
+[color] 1
+(8)test.alu_result[15:0]
+[color] 1
+(9)test.alu_result[15:0]
+[color] 1
+(10)test.alu_result[15:0]
+[color] 1
+(11)test.alu_result[15:0]
+[color] 1
+(12)test.alu_result[15:0]
+[color] 1
+(13)test.alu_result[15:0]
+[color] 1
+(14)test.alu_result[15:0]
+[color] 1
+(15)test.alu_result[15:0]
+@1401204
+-group_end
+@c00028
+test.ctrl[1:0]
+@28
+(0)test.ctrl[1:0]
+(1)test.ctrl[1:0]
+@1401200
+-group_end
+@c00024
++{test.a} test.input_a[15:0]
+@28
+(0)test.input_a[15:0]
+(1)test.input_a[15:0]
+(2)test.input_a[15:0]
+(3)test.input_a[15:0]
+(4)test.input_a[15:0]
+(5)test.input_a[15:0]
+(6)test.input_a[15:0]
+(7)test.input_a[15:0]
+(8)test.input_a[15:0]
+(9)test.input_a[15:0]
+(10)test.input_a[15:0]
+(11)test.input_a[15:0]
+(12)test.input_a[15:0]
+(13)test.input_a[15:0]
+(14)test.input_a[15:0]
+(15)test.input_a[15:0]
+@1401200
+-group_end
+@24
+test.input_b[15:0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,4 +1,4 @@
-timeunit 100ps/10ps;
+timeunit 10ps/1ps;
 module test ();
      logic [1:0] ctrl;
 			logic [15:0] input_a;
@@ -15,8 +15,44 @@ module test ();
         input_a = 16'd10;
         input_b = 16'd20;
         #10;
-        input_a = 16'd30;
+        input_b = 16'd30;
+
         #10;
+        input_a = 16'd50;
+
+        #10;
+        ctrl = 2'b01;
+        input_a = 16'd10;
+        input_b = 16'd20;
+
+        #10;
+        input_b = 16'd30;
+
+        #10;
+        input_a = 16'd50;
+
+        #10;
+        ctrl = 2'b10;
+        input_a = 16'd10;
+        input_b = 16'd10;
+
+        #10;
+        input_b = 16'd30;
+
+        #10;
+        input_a = 16'd50;
+
+        #10;
+        ctrl = 2'b11;
+        input_a = 16'd10;
+        input_b = 16'd20;
+
+        #10;
+        input_b = 16'd30;
+
+        #10;
+        input_a = 16'd50;
+
         $finish();
         end
 

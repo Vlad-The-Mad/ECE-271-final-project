@@ -1,0 +1,108 @@
+#! /usr/bin/vvp
+:ivl_version "10.1 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+:vpi_module "v2009";
+S_0x564d00c140d0 .scope module, "test_reg" "test_reg" 2 2;
+ .timescale -11 -12;
+v0x564d00c348c0_0 .var "clock", 0 0;
+v0x564d00c34980_0 .var "enable", 0 0;
+v0x564d00c34a50_0 .net "readword", 15 0, v0x564d00c34540_0;  1 drivers
+v0x564d00c34b50_0 .var "reset", 0 0;
+v0x564d00c34c20_0 .var "write_word", 15 0;
+S_0x564d00c14250 .scope module, "u1" "register" 2 8, 3 1 0, S_0x564d00c140d0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "enable"
+    .port_info 1 /INPUT 1 "clock"
+    .port_info 2 /INPUT 1 "reset"
+    .port_info 3 /INPUT 16 "write_word"
+    .port_info 4 /OUTPUT 16 "readword"
+v0x564d00c144a0_0 .net "clock", 0 0, v0x564d00c348c0_0;  1 drivers
+v0x564d00c34480_0 .net "enable", 0 0, v0x564d00c34980_0;  1 drivers
+v0x564d00c34540_0 .var "readword", 15 0;
+v0x564d00c34630_0 .net "reset", 0 0, v0x564d00c34b50_0;  1 drivers
+v0x564d00c346f0_0 .net "write_word", 15 0, v0x564d00c34c20_0;  1 drivers
+E_0x564d00bd6d90/0 .event negedge, v0x564d00c34630_0;
+E_0x564d00bd6d90/1 .event posedge, v0x564d00c144a0_0;
+E_0x564d00bd6d90 .event/or E_0x564d00bd6d90/0, E_0x564d00bd6d90/1;
+    .scope S_0x564d00c14250;
+T_0 ;
+    %wait E_0x564d00bd6d90;
+    %load/vec4 v0x564d00c34480_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %load/vec4 v0x564d00c346f0_0;
+    %assign/vec4 v0x564d00c34540_0, 0;
+T_0.0 ;
+    %load/vec4 v0x564d00c34630_0;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_0.2, 4;
+    %pushi/vec4 0, 0, 16;
+    %assign/vec4 v0x564d00c34540_0, 0;
+T_0.2 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x564d00c140d0;
+T_1 ;
+    %vpi_call/w 2 10 "$dumpfile", "register.vcd" {0 0 0};
+    %vpi_call/w 2 11 "$dumpvars" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564d00c348c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564d00c34b50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564d00c34980_0, 0, 1;
+    %pushi/vec4 20, 0, 16;
+    %store/vec4 v0x564d00c34c20_0, 0, 16;
+    %end;
+    .thread T_1;
+    .scope S_0x564d00c140d0;
+T_2 ;
+    %delay 100, 0;
+    %load/vec4 v0x564d00c348c0_0;
+    %nor/r;
+    %store/vec4 v0x564d00c348c0_0, 0, 1;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0x564d00c140d0;
+T_3 ;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x564d00c34b50_0, 0, 1;
+    %delay 100, 0;
+    %pushi/vec4 20, 0, 16;
+    %store/vec4 v0x564d00c34c20_0, 0, 16;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x564d00c34980_0, 0, 1;
+    %delay 100, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564d00c34b50_0, 0, 1;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x564d00c34b50_0, 0, 1;
+    %delay 100, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x564d00c34980_0, 0, 1;
+    %pushi/vec4 10, 0, 16;
+    %store/vec4 v0x564d00c34c20_0, 0, 16;
+    %delay 100, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x564d00c34980_0, 0, 1;
+    %pushi/vec4 30, 0, 16;
+    %store/vec4 v0x564d00c34c20_0, 0, 16;
+    %delay 100, 0;
+    %vpi_call/w 2 47 "$finish" {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "register_tb.sv";
+    "register.sv";

@@ -1,0 +1,68 @@
+$date
+	Mon Jun  4 11:23:01 2018
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test_reg $end
+$var wire 16 ! readword [15:0] $end
+$var reg 1 " clock $end
+$var reg 1 # enable $end
+$var reg 1 $ reset $end
+$var reg 16 % write_word [15:0] $end
+$scope module u1 $end
+$var wire 1 " clock $end
+$var wire 1 # enable $end
+$var wire 1 $ reset $end
+$var wire 16 & write_word [15:0] $end
+$var reg 16 ' readword [15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 '
+b10100 &
+b10100 %
+0$
+0#
+0"
+b0 !
+$end
+#100
+1$
+1"
+#200
+0"
+#300
+b10100 !
+b10100 '
+1#
+1"
+#400
+b0 !
+b0 '
+0$
+0"
+#500
+b10100 !
+b10100 '
+1$
+1"
+#600
+b1010 %
+b1010 &
+0#
+0"
+#700
+b11110 !
+b11110 '
+b11110 %
+b11110 &
+1#
+1"
+#800
+0"
