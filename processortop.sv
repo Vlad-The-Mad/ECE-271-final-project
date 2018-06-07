@@ -11,6 +11,7 @@ state_machine state_machine(
 
 control_matrix control(
   .opcode(Mem_out[15:12]),
+  .branch_flag(Mem_out[11]),
   .state(state),
   .LT_flag(LT_flag_set),
   .LT_state(incr_branch),
@@ -28,8 +29,9 @@ control_matrix control(
   .reg_file_wrEN(reg_file_wrEN),
   .EN_mem_add(EN_mem_add),
   .mem_add_reset(mem_add_reset),
-
-  .10or-10_branch(branch_len),
+  .EN_output(EN_output),
+  .output_reset(output_reset),
+  .ten_branch(branch_len),
   .PC_or_read_mem(PC_or_read_mem),
   .PC_in_op(PC_in_op),
   .lineb_ex(lineb_ex),
