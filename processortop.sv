@@ -13,12 +13,13 @@ control_matrix control(
   .opcode(Mem_out[15:12]),
   .branch_flag(Mem_out[11]),
   .state(state),
+  .alternate_read(alternate_read),
+  .alt_write(alt_write),
   .LT_flag(LT_flag_set),
   .LT_state(incr_branch),
   .alu_control(alu_control),
   .write_register(reg_file_wrEN),
   .read_register(reset_reg_file),
-  .write_reg_from_memory(),
   .extender_reset(extender_reset),
   .state_machine_reset(state_machine_reset),
   .PC_EN(PC_EN),
@@ -29,6 +30,8 @@ control_matrix control(
   .reg_file_wrEN(reg_file_wrEN),
   .EN_mem_add(EN_mem_add),
   .mem_add_reset(mem_add_reset),
+  .RAM_wrEN(RAM_wrEN),
+  .RAM_rddisEN(RAM_rddisEN),
   .EN_output(EN_output),
   .output_reset(output_reset),
   .ten_branch(branch_len),
@@ -36,6 +39,8 @@ control_matrix control(
   .PC_in_op(PC_in_op),
   .lineb_ex(lineb_ex),
   .alu_linea(alu_linea),
+  .Altsel(Altsel),
+  .Altwrsel(Altwrsel)
   );
 
 extender sign_extender(
@@ -67,6 +72,7 @@ register output_store(
 
 RAM memory(
   .write_EN(RAM_wrEN),
+  .read_disEN(RAM_rddisEN)
   .read_address(read_addr),
   .write_address(write_mem_add),
   .write_value(alu_linea_out),
@@ -78,9 +84,9 @@ register_bank reg_file(
   .read_1EN(read_1EN),
   .read_2EN(read_2EN),
   .writeEN(reg_file_wrEN),
-  .read_1(Mem_out[9:5]),//part of instruction
+  .read_1(line1),//part of instruction
   .read_2(Mem_out[4:0]),//part of instruction
-  .write_reg_address(Mem_out[9:5]),//part of instruction
+  .write_reg_address(rfile_wradd),//part of instruction
   .write_val(linea_alu_out),
   .line_a(line_a),
   .line_b(line_b));
@@ -103,6 +109,18 @@ multiplexer2 branch_length_mux(
   .line_1(16'd10),
   .line_2(-16'd10),
   .out(branch));
+
+multiplexer2 Aoralt_mux(
+  .select(Altsel),
+  .line_1(Mem_out[9:5]),
+  .line_2(alternate_read),
+  .out(line1);
+
+multiplexer2 Aoralt_write_mux(
+  .select(Altwrsel),
+  .line_1(Mem_out[9:5]),
+  .line_2(alt_write),
+  .out(rfile_wradd);
 
 multiplexer2 incr_branch_mux(
   .select(incr_branch),
