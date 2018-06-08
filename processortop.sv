@@ -34,18 +34,18 @@ logic [0:0] PC_in_op;
 logic [15:0] PC_new;
 logic [15:0] PC_out;
 logic [15:0] line_a;
-logic write_mem_add;
+logic [15:0] write_mem_add;
 logic [15:0] linea_alu_out;
 logic [15:0] alu_linea_out;
 logic [15:0] read_addr;
 logic [15:0] Mem_out;
 logic [4:0] line1;
-logic rfile_wradd;
+logic [4:0] rfile_wradd;
 logic [15:0] line_b;
 logic [15:0] input_b;
 logic [15:0] alu_out;
 logic [15:0] add_to_PC;
-logic PC_nxt_branch;
+logic [15:0] PC_nxt_branch;
 logic [15:0] branch;
 logic [0:0] lineb_ex;
 logic [0:0] alu_linea;
@@ -155,13 +155,13 @@ multiplexer2 branch_length_mux(
   .line_2(-16'd10),
   .out(branch));
 
-multiplexer2 Aoralt_mux(
+multiplexer2 #(5) Aoralt_mux(
   .select(Altsel),
   .line_1(Mem_out[9:5]),
   .line_2(alternate_read),
   .out(line1));
 
-multiplexer2 Aoralt_write_mux(
+multiplexer2 #(5) Aoralt_write_mux(
   .select(Altwrsel),
   .line_1(Mem_out[9:5]),
   .line_2(alt_write),

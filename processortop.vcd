@@ -1,5 +1,5 @@
 $date
-	Fri Jun  8 11:36:31 2018
+	Fri Jun  8 11:59:16 2018
 $end
 $version
 	Icarus Verilog
@@ -8,15 +8,15 @@ $timescale
 	1ps
 $end
 $scope module processer_test $end
-$var wire 1 ! processor_output $end
+$var wire 16 ! processor_output [15:0] $end
 $var reg 16 " Mem_out [15:0] $end
 $var reg 1 # clk $end
 $scope module u1 $end
-$var wire 1 $ write_mem_add $end
+$var wire 16 $ write_mem_add [15:0] $end
 $var wire 1 % state_machine_reset $end
 $var wire 2 & state [1:0] $end
 $var wire 16 ' signex_out [15:0] $end
-$var wire 1 ( rfile_wradd $end
+$var wire 5 ( rfile_wradd [4:0] $end
 $var wire 1 ) reset_reg_file $end
 $var wire 1 * reg_file_wrEN $end
 $var wire 16 + read_addr [15:0] $end
@@ -46,7 +46,7 @@ $var wire 1 B RAM_rddisEN $end
 $var wire 1 C PC_reset $end
 $var wire 16 D PC_out [15:0] $end
 $var wire 1 E PC_or_read_mem $end
-$var wire 1 F PC_nxt_branch $end
+$var wire 16 F PC_nxt_branch [15:0] $end
 $var wire 16 G PC_new [15:0] $end
 $var wire 1 H PC_in_op $end
 $var wire 1 I PC_EN $end
@@ -59,16 +59,16 @@ $var wire 1 O Altsel $end
 $var reg 16 P alu_linea_out [15:0] $end
 $var reg 1 Q clk $end
 $scope module Aoralt_mux $end
-$var wire 16 R line_1 [15:0] $end
-$var wire 16 S line_2 [15:0] $end
+$var wire 5 R line_1 [4:0] $end
 $var wire 1 O select $end
-$var reg 16 T out [15:0] $end
+$var wire 5 S line_2 [4:0] $end
+$var reg 5 T out [4:0] $end
 $upscope $end
 $scope module Aoralt_write_mux $end
-$var wire 16 U line_1 [15:0] $end
-$var wire 16 V line_2 [15:0] $end
+$var wire 5 U line_1 [4:0] $end
 $var wire 1 N select $end
-$var reg 16 W out [15:0] $end
+$var wire 5 V line_2 [4:0] $end
+$var reg 5 W out [4:0] $end
 $upscope $end
 $scope module PC $end
 $var wire 1 Q clock $end
@@ -78,9 +78,9 @@ $var wire 1 I enable $end
 $var reg 16 Y readword [15:0] $end
 $upscope $end
 $scope module PC_next_mux $end
-$var wire 16 Z line_1 [15:0] $end
 $var wire 1 H select $end
-$var wire 16 [ line_2 [15:0] $end
+$var wire 16 Z line_2 [15:0] $end
+$var wire 16 [ line_1 [15:0] $end
 $var reg 16 \ out [15:0] $end
 $upscope $end
 $scope module PC_or_read_mux $end
@@ -218,7 +218,7 @@ bx 0"
 bx /"
 bx ."
 bx -"
-b0x ,"
+bx ,"
 bx +"
 bx *"
 bx )"
@@ -230,7 +230,7 @@ bx $"
 bx #"
 bx ""
 bx !"
-b0x ~
+bx ~
 bx }
 bx |
 bx {
@@ -266,15 +266,15 @@ bx ^
 bx ]
 bx \
 bx [
-b0x Z
+bx Z
 bx Y
 bx X
 bx W
-b0xxxxx V
-b0xxxxx U
+bx V
+bx U
 bx T
-b0xxxxx S
-b0xxxxx R
+bx S
+bx R
 xQ
 bx P
 xO
@@ -286,7 +286,7 @@ bx J
 xI
 xH
 bx G
-xF
+bx F
 xE
 bx D
 xC
@@ -316,14 +316,14 @@ x,
 bx +
 x*
 x)
-x(
+bx (
 bx '
 bx &
 x%
-x$
+bx $
 0#
 b1111000010001000 "
-x!
+bx !
 $end
 #100
 1#
