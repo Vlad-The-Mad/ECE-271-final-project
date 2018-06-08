@@ -31,20 +31,33 @@ module test ();
                 logic alu_linea;
                 logic clock;
                 logic control_reset;
+                reg opcode_store;
       control_matrix u1(.*);
   initial begin
         $dumpfile("control_matrix.vcd");
         $dumpvars;
         control_reset = 1'b1;
-        alu_control = 2'b00;
+        clock = 0;
   end
   always
-  #10  clock = !clock;
+  #5  clock = !clock;
 
   initial begin
+  control_reset = 1'b1;
   #10
+  opcode = 4'b0001;
+  state = 2;
   control_reset = 1'b0;
   #10
+  state = 3;
+  #10
+  opcode = 4'b0101;
+  state = 2;
+  #10
+  state = 3;
+  #10
+  opcode = 4'b1111;
+  #100
   $finish();
   end
 endmodule

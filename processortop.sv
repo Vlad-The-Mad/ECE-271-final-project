@@ -54,15 +54,15 @@ register mem_add(
   .enable(EN_mem_add)
   .clock(clk),
   .reset(mem_add_reset),
-  .write_word(linea_alu_out),
-  .readword(processor_output);
+  .write_word(line_a),
+  .readword(write_mem_add);
 
 register output_store(
   .enable(EN_output)
   .clock(clk),
   .reset(output_reset),
   .write_word(linea_alu_out),
-  .readword(line_a);
+  .readword(processor_output);
   );
 
 RAM memory(

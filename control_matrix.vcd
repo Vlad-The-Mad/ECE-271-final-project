@@ -1,5 +1,5 @@
 $date
-	Thu Jun  7 14:39:27 2018
+	Thu Jun  7 20:53:21 2018
 $end
 $version
 	Icarus Verilog
@@ -38,6 +38,7 @@ $var reg 3 ; state [2:0] $end
 $scope module u1 $end
 $var wire 1 6 LT_flag $end
 $var wire 1 7 branch_flag $end
+$var wire 1 8 clock $end
 $var wire 4 < opcode [3:0] $end
 $var wire 3 = state [2:0] $end
 $var reg 1 5 EN_mem_add $end
@@ -50,12 +51,11 @@ $var reg 1 / PC_reset $end
 $var reg 1 . RAM_wrEN $end
 $var reg 2 > alu_control [1:0] $end
 $var reg 1 , alu_linea $end
-$var reg 1 ? control_reset $end
 $var reg 1 + extender_reset $end
-$var reg 1 @ less_than_flag $end
+$var reg 1 ? less_than_flag $end
 $var reg 1 * lineb_ex $end
 $var reg 1 ) mem_add_reset $end
-$var reg 4 A opcode_store [3:0] $end
+$var reg 4 @ opcode_store [3:0] $end
 $var reg 1 ( output_reset $end
 $var reg 1 ' read_1EN $end
 $var reg 1 & read_2EN $end
@@ -69,8 +69,7 @@ $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-bx A
-x@
+bx @
 x?
 bx >
 bx =
@@ -78,7 +77,7 @@ bx <
 bx ;
 bx :
 19
-x8
+08
 x7
 x6
 x5
@@ -103,6 +102,83 @@ x#
 x"
 x!
 $end
+#50
+18
 #100
+11
+b1 @
+08
 09
+b10 ;
+b10 =
+b1 :
+b1 <
+#150
+18
 #200
+08
+b11 ;
+b11 =
+#250
+18
+#300
+b0 -
+b0 >
+b101 @
+08
+b10 ;
+b10 =
+b101 :
+b101 <
+#350
+18
+#400
+08
+b11 ;
+b11 =
+#450
+18
+#500
+08
+b1111 :
+b1111 <
+#550
+18
+#600
+08
+#650
+18
+#700
+08
+#750
+18
+#800
+08
+#850
+18
+#900
+08
+#950
+18
+#1000
+08
+#1050
+18
+#1100
+08
+#1150
+18
+#1200
+08
+#1250
+18
+#1300
+08
+#1350
+18
+#1400
+08
+#1450
+18
+#1500
+08

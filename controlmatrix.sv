@@ -1,4 +1,6 @@
-module control_matrix (input logic [3:0] opcode,
+module control_matrix (
+                      input logic clock,
+                      input logic [3:0] opcode,
                       input logic branch_flag,
                       input logic [2:0]state,
                       //input logic reset_signals,
@@ -64,9 +66,7 @@ always @ (*) begin
   0111: begin alu_control <= 01;/*SUB subtract registers from each other*/
 
         end
-  default: alu_control <= 00;
-  endcase
-  if (~control_reset) begin
+  1111: begin
                 //input logic reset_signals,
                  alu_control <= 2'b00;
                  write_reg_from_memory <= 0;
@@ -93,5 +93,8 @@ always @ (*) begin
                  alu_linea <= 0;
                  less_than_flag <= 0;
                  end
+
+    default: alu_control <= 00;
+    endcase
 end
 endmodule
