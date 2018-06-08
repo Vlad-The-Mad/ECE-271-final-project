@@ -1,5 +1,5 @@
 $date
-	Fri Jun  8 11:16:44 2018
+	Fri Jun  8 11:32:34 2018
 $end
 $version
 	Icarus Verilog
@@ -9,167 +9,168 @@ $timescale
 $end
 $scope module processer_test $end
 $var wire 1 ! processor_output $end
-$var reg 1 " clk $end
+$var reg 16 " Mem_out [15:0] $end
+$var reg 1 # clk $end
 $scope module u1 $end
-$var wire 1 # write_mem_add $end
-$var wire 1 $ state_machine_reset $end
-$var wire 2 % state [1:0] $end
-$var wire 1 & signex_out $end
-$var wire 1 ' rfile_wradd $end
-$var wire 1 ( reset_reg_file $end
-$var wire 1 ) reg_file_wrEN $end
-$var wire 16 * read_addr [15:0] $end
-$var wire 1 + read_2EN $end
-$var wire 1 , read_1EN $end
-$var wire 16 - processor_output [15:0] $end
-$var wire 1 . output_reset $end
-$var wire 1 / mem_add_reset $end
-$var wire 1 0 lineb_ex $end
-$var wire 16 1 linea_alu_out [15:0] $end
-$var wire 16 2 line_b [15:0] $end
-$var wire 16 3 line_a [15:0] $end
-$var wire 5 4 line1 [4:0] $end
-$var wire 16 5 input_b [15:0] $end
-$var wire 1 6 incr_branch $end
-$var wire 1 7 extender_reset $end
-$var wire 1 8 branch_len $end
-$var wire 16 9 branch [15:0] $end
-$var wire 16 : alu_out [15:0] $end
-$var wire 1 ; alu_linea $end
-$var wire 2 < alu_control [1:0] $end
-$var wire 5 = alternate_read [4:0] $end
-$var wire 5 > alt_write [4:0] $end
-$var wire 16 ? add_to_PC [15:0] $end
-$var wire 1 @ RAM_wrEN $end
-$var wire 1 A RAM_rddisEN $end
-$var wire 1 B PC_reset $end
-$var wire 16 C PC_out [15:0] $end
-$var wire 1 D PC_or_read_mem $end
-$var wire 1 E PC_nxt_branch $end
-$var wire 16 F PC_new [15:0] $end
-$var wire 1 G PC_in_op $end
-$var wire 1 H PC_EN $end
-$var wire 16 I Mem_out [15:0] $end
-$var wire 1 J LT_flag_set $end
-$var wire 1 K EN_output $end
-$var wire 1 L EN_mem_add $end
-$var wire 1 M Altwrsel $end
-$var wire 1 N Altsel $end
-$var reg 16 O alu_linea_out [15:0] $end
-$var reg 1 P clk $end
+$var wire 1 $ write_mem_add $end
+$var wire 1 % state_machine_reset $end
+$var wire 2 & state [1:0] $end
+$var wire 1 ' signex_out $end
+$var wire 1 ( rfile_wradd $end
+$var wire 1 ) reset_reg_file $end
+$var wire 1 * reg_file_wrEN $end
+$var wire 16 + read_addr [15:0] $end
+$var wire 1 , read_2EN $end
+$var wire 1 - read_1EN $end
+$var wire 16 . processor_output [15:0] $end
+$var wire 1 / output_reset $end
+$var wire 1 0 mem_add_reset $end
+$var wire 1 1 lineb_ex $end
+$var wire 16 2 linea_alu_out [15:0] $end
+$var wire 16 3 line_b [15:0] $end
+$var wire 16 4 line_a [15:0] $end
+$var wire 5 5 line1 [4:0] $end
+$var wire 16 6 input_b [15:0] $end
+$var wire 1 7 incr_branch $end
+$var wire 1 8 extender_reset $end
+$var wire 1 9 branch_len $end
+$var wire 16 : branch [15:0] $end
+$var wire 16 ; alu_out [15:0] $end
+$var wire 1 < alu_linea $end
+$var wire 2 = alu_control [1:0] $end
+$var wire 5 > alternate_read [4:0] $end
+$var wire 5 ? alt_write [4:0] $end
+$var wire 16 @ add_to_PC [15:0] $end
+$var wire 1 A RAM_wrEN $end
+$var wire 1 B RAM_rddisEN $end
+$var wire 1 C PC_reset $end
+$var wire 16 D PC_out [15:0] $end
+$var wire 1 E PC_or_read_mem $end
+$var wire 1 F PC_nxt_branch $end
+$var wire 16 G PC_new [15:0] $end
+$var wire 1 H PC_in_op $end
+$var wire 1 I PC_EN $end
+$var wire 16 J Mem_out [15:0] $end
+$var wire 1 K LT_flag_set $end
+$var wire 1 L EN_output $end
+$var wire 1 M EN_mem_add $end
+$var wire 1 N Altwrsel $end
+$var wire 1 O Altsel $end
+$var reg 16 P alu_linea_out [15:0] $end
+$var reg 1 Q clk $end
 $scope module Aoralt_mux $end
-$var wire 16 Q line_1 [15:0] $end
-$var wire 16 R line_2 [15:0] $end
-$var wire 1 N select $end
-$var reg 16 S out [15:0] $end
+$var wire 16 R line_1 [15:0] $end
+$var wire 16 S line_2 [15:0] $end
+$var wire 1 O select $end
+$var reg 16 T out [15:0] $end
 $upscope $end
 $scope module Aoralt_write_mux $end
-$var wire 16 T line_1 [15:0] $end
-$var wire 16 U line_2 [15:0] $end
-$var wire 1 M select $end
-$var reg 16 V out [15:0] $end
+$var wire 16 U line_1 [15:0] $end
+$var wire 16 V line_2 [15:0] $end
+$var wire 1 N select $end
+$var reg 16 W out [15:0] $end
 $upscope $end
 $scope module PC $end
-$var wire 1 P clock $end
-$var wire 16 W write_word [15:0] $end
-$var wire 1 B reset $end
-$var wire 1 H enable $end
-$var reg 16 X readword [15:0] $end
+$var wire 1 Q clock $end
+$var wire 16 X write_word [15:0] $end
+$var wire 1 C reset $end
+$var wire 1 I enable $end
+$var reg 16 Y readword [15:0] $end
 $upscope $end
 $scope module PC_next_mux $end
-$var wire 16 Y line_1 [15:0] $end
-$var wire 16 Z line_2 [15:0] $end
-$var wire 1 G select $end
-$var reg 16 [ out [15:0] $end
+$var wire 16 Z line_1 [15:0] $end
+$var wire 16 [ line_2 [15:0] $end
+$var wire 1 H select $end
+$var reg 16 \ out [15:0] $end
 $upscope $end
 $scope module PC_or_read_mux $end
-$var wire 16 \ line_1 [15:0] $end
-$var wire 1 D select $end
-$var wire 16 ] line_2 [15:0] $end
-$var reg 16 ^ out [15:0] $end
+$var wire 16 ] line_1 [15:0] $end
+$var wire 1 E select $end
+$var wire 16 ^ line_2 [15:0] $end
+$var reg 16 _ out [15:0] $end
 $upscope $end
 $scope module alu_unit $end
-$var wire 1 J LT $end
-$var wire 16 _ input_b [15:0] $end
-$var wire 16 ` input_a [15:0] $end
-$var wire 2 a ctrl [1:0] $end
-$var reg 16 b alu_result [15:0] $end
+$var wire 1 K LT $end
+$var wire 16 ` input_b [15:0] $end
+$var wire 16 a input_a [15:0] $end
+$var wire 2 b ctrl [1:0] $end
+$var reg 16 c alu_result [15:0] $end
 $upscope $end
 $scope module branch_length_mux $end
-$var wire 16 c line_1 [15:0] $end
-$var wire 16 d line_2 [15:0] $end
-$var wire 1 8 select $end
-$var reg 16 e out [15:0] $end
+$var wire 16 d line_1 [15:0] $end
+$var wire 16 e line_2 [15:0] $end
+$var wire 1 9 select $end
+$var reg 16 f out [15:0] $end
 $upscope $end
 $scope module control $end
-$var wire 1 J LT_flag $end
-$var wire 1 f branch_flag $end
-$var wire 1 g clock $end
+$var wire 1 K LT_flag $end
+$var wire 1 g branch_flag $end
+$var wire 1 Q clock $end
 $var wire 4 h opcode [3:0] $end
 $var wire 2 i state [1:0] $end
-$var reg 1 N Altsel $end
-$var reg 1 M Altwrsel $end
-$var reg 1 L EN_mem_add $end
-$var reg 1 K EN_output $end
-$var reg 1 6 LT_state $end
-$var reg 1 H PC_EN $end
-$var reg 1 G PC_in_op $end
-$var reg 1 D PC_or_read_mem $end
-$var reg 1 B PC_reset $end
-$var reg 1 A RAM_rddisEN $end
-$var reg 1 @ RAM_wrEN $end
+$var reg 1 O Altsel $end
+$var reg 1 N Altwrsel $end
+$var reg 1 M EN_mem_add $end
+$var reg 1 L EN_output $end
+$var reg 1 7 LT_state $end
+$var reg 1 I PC_EN $end
+$var reg 1 H PC_in_op $end
+$var reg 1 E PC_or_read_mem $end
+$var reg 1 C PC_reset $end
+$var reg 1 B RAM_rddisEN $end
+$var reg 1 A RAM_wrEN $end
 $var reg 5 j alt_write [4:0] $end
 $var reg 5 k alternate_read [4:0] $end
 $var reg 2 l alu_control [1:0] $end
-$var reg 1 ; alu_linea $end
-$var reg 1 7 extender_reset $end
+$var reg 1 < alu_linea $end
+$var reg 1 8 extender_reset $end
 $var reg 1 m less_than_flag $end
-$var reg 1 0 lineb_ex $end
-$var reg 1 / mem_add_reset $end
+$var reg 1 1 lineb_ex $end
+$var reg 1 0 mem_add_reset $end
 $var reg 4 n opcode_store [3:0] $end
-$var reg 1 . output_reset $end
-$var reg 1 , read_1EN $end
-$var reg 1 + read_2EN $end
-$var reg 1 ) reg_file_wrEN $end
-$var reg 1 ( reset_reg_file $end
-$var reg 1 $ state_machine_reset $end
-$var reg 1 8 ten_branch $end
+$var reg 1 / output_reset $end
+$var reg 1 - read_1EN $end
+$var reg 1 , read_2EN $end
+$var reg 1 * reg_file_wrEN $end
+$var reg 1 ) reset_reg_file $end
+$var reg 1 % state_machine_reset $end
+$var reg 1 9 ten_branch $end
 $upscope $end
 $scope module extender $end
 $var wire 10 o in_10 [9:0] $end
-$var wire 1 7 reset $end
+$var wire 1 8 reset $end
 $var reg 16 p out_16 [15:0] $end
 $var reg 10 q temp_store [9:0] $end
 $upscope $end
 $scope module incr_branch_mux $end
 $var wire 16 r line_1 [15:0] $end
 $var wire 16 s line_2 [15:0] $end
-$var wire 1 6 select $end
+$var wire 1 7 select $end
 $var reg 16 t out [15:0] $end
 $upscope $end
 $scope module linea_alu_mux $end
 $var wire 16 u line_1 [15:0] $end
-$var wire 1 ; select $end
+$var wire 1 < select $end
 $var wire 16 v line_2 [15:0] $end
 $var reg 16 w out [15:0] $end
 $upscope $end
 $scope module lineb_signex_mux $end
 $var wire 16 x line_2 [15:0] $end
-$var wire 1 0 select $end
+$var wire 1 1 select $end
 $var wire 16 y line_1 [15:0] $end
 $var reg 16 z out [15:0] $end
 $upscope $end
 $scope module mem_add $end
-$var wire 1 P clock $end
-$var wire 1 L enable $end
-$var wire 1 / reset $end
+$var wire 1 Q clock $end
+$var wire 1 M enable $end
+$var wire 1 0 reset $end
 $var wire 16 { write_word [15:0] $end
 $var reg 16 | readword [15:0] $end
 $upscope $end
 $scope module memory $end
 $var wire 16 } read_address [15:0] $end
-$var wire 1 A read_disEN $end
-$var wire 1 @ write_EN $end
+$var wire 1 B read_disEN $end
+$var wire 1 A write_EN $end
 $var wire 16 ~ write_address [15:0] $end
 $var wire 16 !" write_value [15:0] $end
 $var reg 10 "" reduced_read_address [9:0] $end
@@ -177,9 +178,9 @@ $var reg 10 #" reduced_write_address [9:0] $end
 $var reg 16 $" word [15:0] $end
 $upscope $end
 $scope module output_store $end
-$var wire 1 P clock $end
-$var wire 1 K enable $end
-$var wire 1 . reset $end
+$var wire 1 Q clock $end
+$var wire 1 L enable $end
+$var wire 1 / reset $end
 $var wire 16 %" write_word [15:0] $end
 $var reg 16 &" readword [15:0] $end
 $upscope $end
@@ -189,21 +190,21 @@ $var wire 16 (" line_b [15:0] $end
 $var reg 16 )" result [15:0] $end
 $upscope $end
 $scope module reg_file $end
-$var wire 1 P clk $end
+$var wire 1 Q clk $end
 $var wire 5 *" read_1 [4:0] $end
-$var wire 1 , read_1EN $end
+$var wire 1 - read_1EN $end
 $var wire 5 +" read_2 [4:0] $end
-$var wire 1 + read_2EN $end
-$var wire 1 ( reset $end
-$var wire 1 ) writeEN $end
+$var wire 1 , read_2EN $end
+$var wire 1 ) reset $end
+$var wire 1 * writeEN $end
 $var wire 5 ," write_reg_address [4:0] $end
 $var wire 16 -" write_val [15:0] $end
 $var reg 16 ." line_a [15:0] $end
 $var reg 16 /" line_b [15:0] $end
 $upscope $end
 $scope module state_machine $end
-$var wire 1 P clk $end
-$var wire 1 $ state_reset $end
+$var wire 1 Q clk $end
+$var wire 1 % state_reset $end
 $var reg 2 0" next_state [1:0] $end
 $var reg 2 1" state [1:0] $end
 $upscope $end
@@ -252,11 +253,11 @@ bx k
 bx j
 bx i
 bx h
-zg
-xf
-bx e
-b1111111111110110 d
-b1010 c
+xg
+bx f
+b1111111111110110 e
+b1010 d
+bx c
 bx b
 bx a
 bx `
@@ -264,67 +265,67 @@ bx _
 bx ^
 bx ]
 bx \
-bx [
+b0x [
 b0x Z
-b0x Y
+bx Y
 bx X
 bx W
-bx V
+b0xxxxx V
 b0xxxxx U
-b0xxxxx T
-bx S
+bx T
+b0xxxxx S
 b0xxxxx R
-b0xxxxx Q
-xP
-bx O
+xQ
+bx P
+xO
 xN
 xM
 xL
 xK
-xJ
-bx I
+bx J
+xI
 xH
-xG
-bx F
+bx G
+xF
 xE
-xD
-bx C
+bx D
+xC
 xB
 xA
-x@
+bx @
 bx ?
 bx >
 bx =
-bx <
-x;
+x<
+bx ;
 bx :
-bx 9
+x9
 x8
 x7
-x6
+bx 6
 bx 5
 bx 4
 bx 3
 bx 2
-bx 1
+x1
 x0
 x/
-x.
-bx -
+bx .
+x-
 x,
-x+
-bx *
+bx +
+x*
 x)
 x(
 x'
-x&
-bx %
+bx &
+x%
 x$
-x#
-0"
+0#
+b1111000010001000 "
 x!
 $end
 #100
-1"
+1#
 #200
-0"
+0#

@@ -58,6 +58,7 @@ state_machine state_machine(
   .state(state));
 
 control_matrix control(
+  .clock(clk),
   .opcode(Mem_out[15:12]),
   .branch_flag(Mem_out[11]),
   .state(state),

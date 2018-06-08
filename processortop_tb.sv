@@ -56,6 +56,7 @@ module processer_test ();
           $dumpfile("processortop.vcd");
           $dumpvars;
     clk = 0;
+    Mem_out = 16'b1111000010001000;
     end
   always
   #10  clk = !clk;
