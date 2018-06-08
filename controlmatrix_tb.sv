@@ -43,18 +43,15 @@ module test ();
   #5  clock = !clock;
 
   initial begin
+  state = 2;
   control_reset = 1'b1;
   #10
   opcode = 4'b0001;
-  state = 2;
   control_reset = 1'b0;
   #10
-  state = 3;
   #10
   opcode = 4'b0101;
-  state = 2;
   #10
-  state = 3;
   #10
   opcode = 4'b1111;
   #100

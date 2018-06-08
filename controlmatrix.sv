@@ -33,12 +33,12 @@ module control_matrix (
             logic control_reset;
 always @ (*) begin
   ten_branch <= branch_flag;
-  LT_state = less_than_flag;
+  LT_state <= less_than_flag;
   if (state == 1)
     PC_EN <= 1;
   if (state == 2) begin
     opcode_store = opcode;
-    PC_EN <<= 0;
+    PC_EN <= 0;
     end
   case (opcode_store)
   0001: PC_in_op <= 1; /*JMP absolute jump*/
@@ -58,7 +58,7 @@ always @ (*) begin
           else if (state == 3) begin
           less_than_flag <= LT_flag;
           read_1EN <= 0;
-          read_2EN <<= 0;
+          read_2EN <= 0;
           end
         end
   0110: begin alu_control <= 00;/*ADD add registers together*/
