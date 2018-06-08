@@ -3,8 +3,8 @@ module control_matrix (
                       input logic [3:0] opcode,
                       input logic branch_flag,
                       input logic [2:0]state,
-                      output logic [0:0] alternate_read,
-                      output logic [0:0] alt_write,
+                      output logic [4:0] alternate_read,
+                      output logic [4:0] alt_write,
                       //input logic reset_signals,
                       input logic LT_flag,
                       output logic [1:0] alu_control,
@@ -51,44 +51,88 @@ always @ (*) begin
         end
   4'b0010: begin /*LDW load bitstring from memory to register*/
             if (state == 1) begin
-            alu_control <= 2'b00;
-            alternate_read <= 16'd2;//line going to A alternate_read <= 16'd2;
-            Altsel <= 1;            //control going to A mux alt_orA
-            read_1EN <= 1;
-            PC_or_read_mem <= 1;
-            lineb_ex <= 1;
+              Altsel <= 1;            //control going to A mux alt_orA
+              alternate_read <= 4'd2;//line going to A alternate_read 16'd2 has memory offset
+              read_1EN <= 1;
+              PC_or_read_mem <= 1;
+              lineb_ex <= 1;
             end
             else if (state == 2) begin
-            PC_or_read_mem <= 1;
-            alt_write <=16'd1;//line going to write address <= 16'd1;
-            Altwrsel <= 1;//flag for alternate write address
-            RAM_rddisEN <= 1; //keep ram from reading weird alu results from adding new words
+              PC_or_read_mem <= 1;
+              alt_write <= 4'd1;//line going to write address <= 16'd1;
+              Altwrsel <= 1;//flag for alternate write address
+              RAM_rddisEN <= 1; //keep ram from reading weird alu results from adding new words
             end
             else if (state == 3) begin
-            reg_file_wrEN <= 1;
+              reg_file_wrEN <= 1;
             end
         end
   4'b0011: begin /*STW store register val in memory*/
+            if (state == 1) begin
+              Altsel <= 1;
+              alternate_read <= 4'd2;
+              read_1EN <= 1;
+              lineb_ex <= 1;
+            end
+            else if (state == 2) begin
+            EN_mem_add <= 1;
+            end
+            else if (state == 3) begin
+            EN_mem_add <= 0;
+              alternate_read <= 4'd3; //d3 is where registers are copied to for storeage
+              alu_linea <= 1;
+              RAM_wrEN <= 1;
+            end
+
         end
   4'b0100: begin /*RTR copy register to register)*/
+          if (state == 1) begin
+            read_2EN <= 1;
+          end
 
         end
   4'b0101: begin /*BLT branch if less than*/
           if (state == 1) begin
-          alu_control <= 2'b01;
-          read_1EN <= 1;
-          read_2EN <= 1;
+            alu_control <= 2'b01;
+            read_1EN <= 1;
+            read_2EN <= 1;
           end
           else if (state == 2) begin
-          less_than_flag <= LT_flag;
-          read_1EN <= 0;
-          read_2EN <= 0;
+            less_than_flag <= LT_flag;
+            read_1EN <= 0;
+            read_2EN <= 0;
           end
+
+          //need more to finish this off
         end
   4'b0110: begin alu_control <= 00;/*ADD add registers together*/
+            if (state == 1) begin
+              read_1EN <= 1;
+              read_2EN <= 1;
+            end
+            else if (state == 2) begin
+              Altwrsel <= 1;
+              alt_write <= 4'd4;
+              reg_file_wrEN <= 1;
+            end
+            else if (state == 3) begin
+              reg_file_wrEN <= 0;
+            end
         end
   4'b0111: begin alu_control <= 01;/*SUB subtract registers from each other*/
-      end
+            if (state == 1) begin
+              read_1EN <= 1;
+              read_2EN <= 1;
+            end
+            else if (state == 2) begin
+              Altwrsel <= 1;
+              alt_write <= 4'd4;
+              reg_file_wrEN <= 1;
+            end
+            else if (state == 3) begin
+              reg_file_wrEN <= 0;
+            end
+        end
   4'b1111: begin
                 //input logic reset_signals,
                  alu_control <= 2'b00;

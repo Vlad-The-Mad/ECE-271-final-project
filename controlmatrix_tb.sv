@@ -1,11 +1,10 @@
-
 timeunit 10ps/1ps;
 module test ();
                 logic [3:0] opcode;
                 logic branch_flag;
                 logic [2:0]state;
-                logic [0:0] alternate_read;
-                logic [0:0] alt_write;
+                logic [4:0] alternate_read;
+                logic [4:0] alt_write;
                 logic LT_flag;
                 logic [1:0] alu_control;
                 logic extender_reset;
