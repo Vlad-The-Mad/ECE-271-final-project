@@ -35,12 +35,13 @@ module control_matrix (
             reg less_than_flag; //LT_flag_set gets this.
             reg [3:0] opcode_store;
             logic control_reset;
-always @ (*) begin
+always @ (posedge clock) begin
   ten_branch <= branch_flag;
   LT_state <= less_than_flag;
-  if (state == 0) begin //flushes the state of the machine
+  if (state == 0 | opcode == 1111) begin //flushes the state of the machine
      alu_control <= 2'b00;
      extender_reset <= 0;
+     state_machine_reset <= 0;
      PC_EN <= 0;
      PC_reset <= 0;
      reset_reg_file <= 0;
@@ -66,7 +67,7 @@ always @ (*) begin
      alternate_read <= 0;
      //changes PC and gets op code
      PC_EN <= 1;
-     opcode_store = opcode;
+     opcode_store <= opcode;
      end
   else if (state == 1) begin
     PC_EN <= 0;
