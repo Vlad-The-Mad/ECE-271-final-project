@@ -1,5 +1,5 @@
 $date
-	Fri Jun  8 11:32:34 2018
+	Fri Jun  8 11:36:31 2018
 $end
 $version
 	Icarus Verilog
@@ -15,7 +15,7 @@ $scope module u1 $end
 $var wire 1 $ write_mem_add $end
 $var wire 1 % state_machine_reset $end
 $var wire 2 & state [1:0] $end
-$var wire 1 ' signex_out $end
+$var wire 16 ' signex_out [15:0] $end
 $var wire 1 ( rfile_wradd $end
 $var wire 1 ) reset_reg_file $end
 $var wire 1 * reg_file_wrEN $end
@@ -79,8 +79,8 @@ $var reg 16 Y readword [15:0] $end
 $upscope $end
 $scope module PC_next_mux $end
 $var wire 16 Z line_1 [15:0] $end
-$var wire 16 [ line_2 [15:0] $end
 $var wire 1 H select $end
+$var wire 16 [ line_2 [15:0] $end
 $var reg 16 \ out [15:0] $end
 $upscope $end
 $scope module PC_or_read_mux $end
@@ -236,7 +236,7 @@ bx |
 bx {
 bx z
 bx y
-b0x x
+bx x
 bx w
 bx v
 bx u
@@ -265,7 +265,7 @@ bx _
 bx ^
 bx ]
 bx \
-b0x [
+bx [
 b0x Z
 bx Y
 bx X
@@ -317,7 +317,7 @@ bx +
 x*
 x)
 x(
-x'
+bx '
 bx &
 x%
 x$

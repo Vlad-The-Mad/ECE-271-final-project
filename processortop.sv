@@ -11,7 +11,7 @@ logic [4:0] alt_write;
 logic LT_flag;
 logic LT_flag_set;
 logic incr_branch;
-logic signex_out;
+logic [15:0] signex_out;
 logic [1:0] alu_control;
 logic [0:0] extender_reset;
 logic [0:0] state_machine_reset;
