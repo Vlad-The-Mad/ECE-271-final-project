@@ -5,10 +5,9 @@ module register (input logic enable,
                 output logic [15:0] readword);
 
 always @ (posedge clock or negedge reset) begin
-if (enable)
-  readword <= write_word;
-if (reset == 0)
-  readword <= 16'b0;
+  if (enable)
+    readword <= write_word;
+  if (reset == 0)
+    readword <= 16'b0;
 end
-
 endmodule

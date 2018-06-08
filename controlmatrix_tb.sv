@@ -2,7 +2,7 @@ timeunit 10ps/1ps;
 module test ();
                 logic [3:0] opcode;
                 logic branch_flag;
-                logic [2:0]state;
+                logic [1:0]state;
                 logic [4:0] alternate_read;
                 logic [4:0] alt_write;
                 logic LT_flag;
@@ -50,8 +50,8 @@ module test ();
   opcode = 4'b1111;
   state = 0;
   #10
-  state = 0;
   opcode = 4'b0001;
+  state = 0;
   #10
   state = 1;
   #10
@@ -59,11 +59,14 @@ module test ();
   #10
   state = 3;
   #10
-  state = 4;
+  opcode = 4'b0001;
+  state = 0;
   #10
-  state = 5;
+  state = 1;
   #10
-  state = 6;
+  state = 2;
+  #10
+  state = 3;
   #10
   opcode = 4'b0010;
   state = 0;
@@ -74,12 +77,6 @@ module test ();
   #10
   state = 3;
   #10
-  state = 4;
-  #10
-  state = 5;
-  #10
-  state = 6;
-  #10
   opcode = 4'b0011;
   state = 0;
   #10
@@ -88,12 +85,6 @@ module test ();
   state = 2;
   #10
   state = 3;
-  #10
-  state = 4;
-  #10
-  state = 5;
-  #10
-  state = 6;
   #10
   opcode = 4'b0100;
   state = 0;
@@ -104,12 +95,6 @@ module test ();
   #10
   state = 3;
   #10
-  state = 4;
-  #10
-  state = 5;
-  #10
-  state = 6;
-  #10
   opcode = 4'b0101;
   state = 0;
   #10
@@ -118,12 +103,6 @@ module test ();
   state = 2;
   #10
   state = 3;
-  #10
-  state = 4;
-  #10
-  state = 5;
-  #10
-  state = 6;
   #10
   opcode = 4'b0110;
   state = 0;
@@ -134,12 +113,6 @@ module test ();
   #10
   state = 3;
   #10
-  state = 4;
-  #10
-  state = 5;
-  #10
-  state = 6;
-  #10
   opcode = 4'b0111;
   state = 0;
   #10
@@ -148,12 +121,6 @@ module test ();
   state = 2;
   #10
   state = 3;
-  #10
-  state = 4;
-  #10
-  state = 5;
-  #10
-  state = 6;
   #10
   #10
   $finish();
