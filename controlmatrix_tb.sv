@@ -31,6 +31,7 @@ module test ();
                 logic control_reset;
                 logic [0:0] Altsel;
                 logic [0:0] Altwrsel;
+                logic read_rddisEN,
                 reg opcode_store;
       control_matrix u1(.*);
   initial begin

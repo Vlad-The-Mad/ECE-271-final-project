@@ -1,7 +1,7 @@
 module processortop (
-      output logic [15:0] processor_output);
+      output logic [15:0] processor_output,
+      input logic clk);
 
-logic clk;
 logic state_reset;
 logic branch_flag;
 logic [1:0] state;
@@ -25,6 +25,7 @@ logic [0:0] reg_file_wrEN;
 logic [0:0] EN_mem_add;
 logic [0:0] mem_add_reset;
 logic [0:0] RAM_wrEN;
+logic [0:0] read_rddisEN;
 logic [0:0] RAM_rddisEN;
 logic [0:0] EN_output;
 logic [0:0] output_reset;
@@ -78,7 +79,7 @@ control_matrix control(
   .EN_mem_add(EN_mem_add),
   .mem_add_reset(mem_add_reset),
   .RAM_wrEN(RAM_wrEN),
-  .RAM_rddisEN(RAM_rddisEN),
+  .read_rddisEN(RAM_rddisEN),
   .EN_output(EN_output),
   .output_reset(output_reset),
   .ten_branch(branch_len),
@@ -118,7 +119,7 @@ register output_store(
 
 RAM memory(
   .write_EN(RAM_wrEN),
-  .read_disEN(RAM_rddisEN),
+  .read_rddisEN(RAM_rddisEN),
   .read_address(read_addr),
   .write_address(write_mem_add),
   .write_value(alu_linea_out),

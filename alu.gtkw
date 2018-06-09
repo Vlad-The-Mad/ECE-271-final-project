@@ -1,23 +1,23 @@
 [*]
 [*] GTKWave Analyzer v3.3.82 (w)1999-2017 BSI
-[*] Mon Jun  4 19:59:07 2018
+[*] Fri Jun  8 20:18:09 2018
 [*]
 [dumpfile] "/home/vladimir/school/ECE271/final_project_system_verilog/alu.vcd"
-[dumpfile_mtime] "Mon Jun  4 19:56:55 2018"
+[dumpfile_mtime] "Tue Jun  5 01:56:50 2018"
 [dumpfile_size] 1143
 [savefile] "/home/vladimir/school/ECE271/final_project_system_verilog/alu.gtkw"
 [timestart] 0
 [size] 1366 728
 [pos] -1 -1
-*-7.755517 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-8.755517 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [sst_width] 213
 [signals_width] 204
 [sst_expanded] 1
 [sst_vpaned_height] 197
 @28
 test.LT
-@c00024
-[color] 1
+@c00420
+[color] 4
 test.alu_result[15:0]
 @28
 [color] 1
@@ -52,7 +52,7 @@ test.alu_result[15:0]
 (14)test.alu_result[15:0]
 [color] 1
 (15)test.alu_result[15:0]
-@1401204
+@1401600
 -group_end
 @c00028
 test.ctrl[1:0]

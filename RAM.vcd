@@ -1,5 +1,5 @@
 $date
-	Tue Jun  5 21:12:58 2018
+	Fri Jun  8 20:21:56 2018
 $end
 $version
 	Icarus Verilog
@@ -10,89 +10,87 @@ $end
 $scope module test $end
 $var wire 16 ! word [15:0] $end
 $var reg 16 " read_address [15:0] $end
-$var reg 1 # write_EN $end
-$var reg 16 $ write_address [15:0] $end
-$var reg 16 % write_value [15:0] $end
+$var reg 1 # read_rddisEN $end
+$var reg 1 $ write_EN $end
+$var reg 16 % write_address [15:0] $end
+$var reg 16 & write_value [15:0] $end
 $scope module us $end
-$var wire 16 & read_address [15:0] $end
-$var wire 1 # write_EN $end
-$var wire 16 ' write_address [15:0] $end
-$var wire 16 ( write_value [15:0] $end
-$var reg 10 ) reduced_read_address [9:0] $end
-$var reg 10 * reduced_write_address [9:0] $end
-$var reg 16 + word [15:0] $end
+$var wire 16 ' read_address [15:0] $end
+$var wire 1 # read_rddisEN $end
+$var wire 1 $ write_EN $end
+$var wire 16 ( write_address [15:0] $end
+$var wire 16 ) write_value [15:0] $end
+$var reg 10 * reduced_read_address [9:0] $end
+$var reg 10 + reduced_write_address [9:0] $end
+$var reg 16 , word [15:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-bx +
+b1010000000001111 ,
+b1 +
 b0 *
 b0 )
-b0 (
+b1 (
 b0 '
 b0 &
-b0 %
-b0 $
+b1 %
+0$
 0#
 b0 "
-bx !
+b1010000000001111 !
 $end
 #100
-b0 !
-b0 +
-1#
+1$
 #200
-b1 *
-b1010 %
-b1010 (
-b1 $
-b1 '
+b1010 &
+b1010 )
 #300
-b10 *
-b10100 %
-b10100 (
-b10 $
-b10 '
+b10 +
+b10100 &
+b10100 )
+b10 %
+b10 (
 #400
 b1010 !
-b1010 +
-b1 )
+b1010 ,
+b1 *
 b1 "
-b1 &
+b1 '
 #500
 b10100 !
-b10100 +
-b10 )
+b10100 ,
+b10 *
 b10 "
-b10 &
+b10 '
 #600
-bx !
-bx +
-b11 )
+b1010000000001111 !
+b1010000000001111 ,
+b11 *
 b11 "
-b11 &
+b11 '
 #700
-b1111101000 %
-b1111101000 (
-0#
+b1111101000 &
+b1111101000 )
+0$
 #800
 b10100 !
-b10100 +
-b10 )
+b10100 ,
+b10 *
 b10 "
-b10 &
+b10 '
 #900
-b0 !
+b1010000000001111 !
+b1010000000001111 ,
 b0 +
 b0 *
-b0 )
-b10000000000 $
-b10000000000 '
+b10000000000 %
+b10000000000 (
 b10000000000 "
-b10000000000 &
+b10000000000 '
 #1000
 b1111101000 !
-b1111101000 +
-1#
+b1111101000 ,
+1$
 #1200

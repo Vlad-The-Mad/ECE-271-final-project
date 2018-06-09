@@ -10,7 +10,7 @@ module test_reg ();
           $dumpfile("register.vcd");
           $dumpvars;
     clock = 0;
-    reset = 2'b0;
+    reset = 2'b1;
     enable = 2'b0;
     write_word = 10'd20;
 
@@ -20,10 +20,11 @@ module test_reg ();
 
   initial begin
   #10;
+  reset = 2'b0;
+  #10;
   reset = 2'b1;
   #10;
   write_word = 10'd20;
-  #10;
   enable = 2'b1;
   #10;
   reset = 2'b0;

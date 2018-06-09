@@ -14,11 +14,13 @@ module adder_tb ();
   line_a = 16'b1;
   line_b = 16'b1;
   #10
-  line_a = 16'd20;
+  line_a = 16'd15;
   #10
-  line_b = -16'd3;
+  line_b = -16'd10;
   #10
-  line_b = -16'd21;
+  line_a = 16'd5;
+  #10
+  line_b = -16'd10;
   #10
 
   $finish();

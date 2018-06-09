@@ -7,7 +7,7 @@ module register (input logic enable,
 always @ (posedge clock or negedge reset) begin
   if (enable)
     readword <= write_word;
-  if (reset == 0)
+  if (~reset)
     readword <= 16'b0;
 end
 endmodule
