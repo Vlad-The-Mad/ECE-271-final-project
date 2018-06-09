@@ -1,10 +1,10 @@
 [*]
 [*] GTKWave Analyzer v3.3.82 (w)1999-2017 BSI
-[*] Tue Jun  5 23:36:15 2018
+[*] Sat Jun  9 05:29:58 2018
 [*]
 [dumpfile] "/home/vladimir/school/ECE271/final_project_system_verilog/register_bank.vcd"
-[dumpfile_mtime] "Tue Jun  5 23:35:01 2018"
-[dumpfile_size] 1242
+[dumpfile_mtime] "Sat Jun  9 05:29:28 2018"
+[dumpfile_size] 1239
 [savefile] "/home/vladimir/school/ECE271/final_project_system_verilog/register_file.gtkw"
 [timestart] 0
 [size] 1366 728

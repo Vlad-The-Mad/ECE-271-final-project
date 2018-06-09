@@ -1,6 +1,7 @@
 module processortop (
       output logic [15:0] processor_output,
-      input logic clk);
+      input logic clk,
+      input logic start);
 
 logic state_reset;
 logic branch_flag;
@@ -53,12 +54,14 @@ logic [0:0] alu_linea;
 logic [0:0] Altsel;
 logic [0:0] Altwrsel;
 
+
 state_machine state_machine(
   .clk(clk),
   .state_reset(state_machine_reset),
   .state(state));
 
 control_matrix control(
+  .start(start),
   .clock(clk),
   .opcode(Mem_out[15:12]),
   .branch_flag(Mem_out[11]),

@@ -32,8 +32,8 @@ module test_reg_bank ();
   #10;
   reset = 0;
   #10;
-  reset = 1;
   read_1 = 5'd15;
+  reset = 1;
   #10;
   writeEN = 1;
   write_val = 16'd20;
@@ -43,7 +43,6 @@ module test_reg_bank ();
   #10;
   reset = 0;
   #10;
-  reset = 1;
   #10;
   $finish();
   end

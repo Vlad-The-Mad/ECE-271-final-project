@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.82 (w)1999-2017 BSI
-[*] Sat Jun  9 03:21:53 2018
+[*] Sat Jun  9 03:31:11 2018
 [*]
 [dumpfile] "/home/vladimir/school/ECE271/final_project_system_verilog/RAM.vcd"
-[dumpfile_mtime] "Sat Jun  9 03:21:20 2018"
+[dumpfile_mtime] "Sat Jun  9 03:21:56 2018"
 [dumpfile_size] 1243
 [savefile] "/home/vladimir/school/ECE271/final_project_system_verilog/RAM.gtkw"
 [timestart] 0
 [size] 1366 728
 [pos] -1 -1
-*-8.880939 2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-8.880939 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] test.
 [sst_width] 213
 [signals_width] 266
@@ -19,9 +19,7 @@
 test.read_address[15:0]
 @28
 test.read_rddisEN
-@29
 test.word[15:0]
-@28
 test.write_EN
 @22
 test.write_address[15:0]

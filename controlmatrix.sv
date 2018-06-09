@@ -1,5 +1,6 @@
 module control_matrix (
                       input logic clock,
+                      input logic start,
                       input logic [3:0] opcode,
                       input logic branch_flag,
                       input logic [1:0]state,
@@ -20,7 +21,7 @@ module control_matrix (
                       output logic [0:0] EN_mem_add,
                       output logic [0:0] mem_add_reset,
                       output logic [0:0] RAM_wrEN,
-                      output logic [0:0] RAM_rddisEN,
+                      output logic [0:0] read_rddisEN,
                       output logic [0:0] EN_output,
                       output logic [0:0] output_reset,
                       output logic [0:0] ten_branch,
@@ -37,20 +38,23 @@ module control_matrix (
 always @ (*) begin
   ten_branch <= branch_flag;
   LT_state <= less_than_flag;
-  if (state == 0 | opcode == 1010) begin //flushes the state of the machine
+  if (start == 1) begin
+     reset_reg_file <= 0;
+     read_rddisEN <= 0;
+     state_machine_reset <= 0;
+     PC_EN <= 1;
+     PC_reset <= 1;
+  end
+  else if (state == 0) begin //flushes the state of the machine
      alu_control <= 2'b00;
      extender_reset <= 0;
-     state_machine_reset <= 0;
-     PC_EN <= 0;
-     PC_reset <= 0;
-     reset_reg_file <= 0;
      read_1EN <= 0;
      read_2EN <= 0;
      reg_file_wrEN <= 0;
      EN_mem_add <= 0;
      mem_add_reset <= 0;
      RAM_wrEN <= 0;
-     RAM_rddisEN <= 0;
+     read_rddisEN <= 0;
      EN_output <= 0;
      output_reset <= 0;
      ten_branch <= 0;
@@ -81,6 +85,7 @@ always @ (*) begin
               Altsel <= 1;
               alternate_read <= 4'd4;
               EN_output <= 1;
+
               end
           end
   4'b0001: begin PC_in_op <= 1; /*JMP absolute jump*/
@@ -97,7 +102,7 @@ always @ (*) begin
               PC_or_read_mem <= 1;
               alt_write <= 4'd1;//line going to write address <= 16'd1;
               Altwrsel <= 1;//flag for alternate write address
-              RAM_rddisEN <= 1; //keep ram from reading weird alu results from adding new words
+              read_rddisEN <= 1; //keep ram from reading weird alu results from adding new words
             end
             else if (state == 3) begin
               reg_file_wrEN <= 1;
@@ -178,15 +183,13 @@ always @ (*) begin
                  extender_reset <= 0;
                  //state_machine_reset <= 0;
                 /*register enables and resets*/
-                 PC_EN <= 0;
-                 PC_reset <= 0;
                  read_1EN <= 0;
                  read_2EN <= 0;
                  reg_file_wrEN <= 0;
                  EN_mem_add <= 0;
                  mem_add_reset <= 0;
                  RAM_wrEN <= 0;
-                 RAM_rddisEN <= 0;
+                 read_rddisEN <= 0;
                  EN_output <= 0;
                  output_reset <= 0;
                 /*mux selects*/

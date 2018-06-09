@@ -1,0 +1,56 @@
+[*]
+[*] GTKWave Analyzer v3.3.82 (w)1999-2017 BSI
+[*] Fri Jun  8 20:16:14 2018
+[*]
+[dumpfile] "/home/vladimir/school/ECE271/final_project_system_verilog/control_matrix.vcd"
+[dumpfile_mtime] "Fri Jun  8 20:12:03 2018"
+[dumpfile_size] 3854
+[savefile] "/home/vladimir/school/ECE271/final_project_system_verilog/control_matrix.gtkw"
+[timestart] 0
+[size] 1366 728
+[pos] -1 -1
+*-9.424469 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test.
+[sst_width] 213
+[signals_width] 182
+[sst_expanded] 1
+[sst_vpaned_height] 186
+@28
+test.u1.Altsel
+test.u1.Altwrsel
+test.u1.EN_mem_add
+test.u1.EN_output
+test.u1.LT_flag
+test.u1.LT_state
+test.u1.PC_EN
+test.u1.PC_in_op
+test.u1.PC_or_read_mem
+test.u1.PC_reset
+test.u1.RAM_rddisEN
+test.u1.RAM_wrEN
+@22
+test.u1.alt_write[4:0]
+test.u1.alternate_read[4:0]
+@28
+test.u1.alu_control[1:0]
+test.u1.alu_linea
+test.u1.branch_flag
+test.u1.clock
+test.u1.extender_reset
+test.u1.less_than_flag
+test.u1.lineb_ex
+test.u1.mem_add_reset
+@29
+test.u1.opcode[3:0]
+test.u1.opcode_store[3:0]
+@28
+test.u1.output_reset
+test.u1.read_1EN
+test.u1.read_2EN
+test.u1.reg_file_wrEN
+test.u1.reset_reg_file
+test.u1.state[1:0]
+test.u1.state_machine_reset
+test.u1.ten_branch
+[pattern_trace] 1
+[pattern_trace] 0

@@ -20,7 +20,7 @@ always @ (posedge clk or negedge reset) begin
     line_b <= registerfile[read_2];
   if (writeEN)
     registerfile[write_reg_address] <= write_val;
-  if (!reset)
+  if (reset == 0)
     begin
     registerfile[0] <= 16'b0;
     /*reg [1] stores the mem offset*/

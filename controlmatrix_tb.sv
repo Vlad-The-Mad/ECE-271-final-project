@@ -1,6 +1,7 @@
 timeunit 10ps/1ps;
 module test ();
                 logic [3:0] opcode;
+                logic start;
                 logic branch_flag;
                 logic [1:0]state;
                 logic [4:0] alternate_read;
@@ -31,7 +32,7 @@ module test ();
                 logic control_reset;
                 logic [0:0] Altsel;
                 logic [0:0] Altwrsel;
-                logic read_rddisEN,
+                logic read_rddisEN;
                 reg opcode_store;
       control_matrix u1(.*);
   initial begin

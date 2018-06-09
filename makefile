@@ -1,6 +1,16 @@
+
 processortop_sim: processortop.sv processortop_tb.sv
 	iverilog -g2012 -Wall processortop.sv controlmatrix.sv adder.sv RAM.sv sign_extender.sv state_machine.sv register_bank.sv alu.sv mux.sv register.sv processortop_tb.sv -o processortop.elf
 	./processortop.elf
+	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
+controlmatrix_sim: controlmatrix.sv controlmatrix_tb.sv
+	iverilog -g2012 -Wall controlmatrix.sv controlmatrix_tb.sv -o controlmatrix.elf
+	./controlmatrix.elf
+	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
+
+register_bank_tb_sim: register_bank.sv register_bank_tb.sv
+	iverilog -g2012 -Wall register_bank.sv register_bank_tb.sv -o register_bank_tb.elf
+	./register_bank_tb.elf
 	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
 
 
@@ -19,10 +29,6 @@ adder_sim: adder.sv adder_tb.sv
 	./adder.elf
 	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
 
-controlmatrix_sim: controlmatrix.sv controlmatrix_tb.sv
-	iverilog -g2012 -Wall controlmatrix.sv controlmatrix_tb.sv -o controlmatrix.elf
-	./controlmatrix.elf
-	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
 
 
 sign_extender_tb_sim: sign_extender.sv sign_extender_tb.sv
@@ -35,10 +41,6 @@ state_machine_tb_sim: state_machine.sv state_machine_tb.sv
 	./state_machine_tb.elf
 	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
 
-register_bank_tb_sim: register_bank.sv register_bank_tb.sv
-	iverilog -g2012 -Wall register_bank.sv register_bank_tb.sv -o register_bank_tb.elf
-	./register_bank_tb.elf
-	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
 
 alu_sim: alu.sv alu_tb.sv
 	iverilog -g2012 -Wall alu.sv alu_tb.sv -o alu.elf
