@@ -70,6 +70,7 @@ always @ (*) begin
      alternate_read <= 0;
      //changes PC and gets op code
      PC_EN <= 1;
+     PC_reset <= 0;
      opcode_store <= opcode;
      end
   else if (state == 1) begin

@@ -3,6 +3,11 @@ processortop_sim: processortop.sv processortop_tb.sv
 	iverilog -g2012 -Wall processortop.sv controlmatrix.sv adder.sv RAM.sv sign_extender.sv state_machine.sv register_bank.sv alu.sv mux.sv register.sv processortop_tb.sv -o processortop.elf
 	./processortop.elf
 	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
+RAM_sim: RAM.sv RAM_tb.sv
+	iverilog -g2012 -Wall RAM.sv RAM_tb.sv -o RAM.elf
+	./RAM.elf
+	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
+
 controlmatrix_sim: controlmatrix.sv controlmatrix_tb.sv
 	iverilog -g2012 -Wall controlmatrix.sv controlmatrix_tb.sv -o controlmatrix.elf
 	./controlmatrix.elf
@@ -13,11 +18,6 @@ register_bank_tb_sim: register_bank.sv register_bank_tb.sv
 	./register_bank_tb.elf
 	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
 
-
-RAM_sim: RAM.sv RAM_tb.sv
-	iverilog -g2012 -Wall RAM.sv RAM_tb.sv -o RAM.elf
-	./RAM.elf
-	gconftool-2 --type string --set /com.geda.gtkwave/0/reload 0
 
 register_sim: register.sv register_tb.sv
 	iverilog -g2012 -Wall register.sv register_tb.sv -o register.elf
